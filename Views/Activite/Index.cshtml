@@ -1,0 +1,49 @@
+﻿@model IEnumerable<GestionActivités.Models.Activités.Activite>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nomActivite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.duree)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.quand)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomActivite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.duree)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quand)
+            </td>
+           
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
