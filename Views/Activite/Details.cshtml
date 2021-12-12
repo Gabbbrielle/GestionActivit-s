@@ -1,0 +1,78 @@
+﻿@model GestionActivités.Models.Activites.Activite
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Activite</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nomActivite)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nomActivite)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.emplacement)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.emplacement)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dateActivite)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dateActivite)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.debut)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.debut)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fin)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fin)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.prix)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.prix)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.vote)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.vote)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.covoiturage)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.covoiturage)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PlaceVoiture)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PlaceVoiture)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

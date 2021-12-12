@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GestionActivités.Models.Activités.Activite>
+﻿@model IEnumerable<GestionActivités.Models.Activites.Activite>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,15 +13,35 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.nomActivite)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.duree)
+                @Html.DisplayNameFor(model => model.emplacement)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.quand)
+                @Html.DisplayNameFor(model => model.dateActivite)
             </th>
-            
+            <th>
+                @Html.DisplayNameFor(model => model.debut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.prix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vote)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.covoiturage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlaceVoiture)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -29,19 +49,39 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.nomActivite)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.duree)
+                @Html.DisplayFor(modelItem => item.emplacement)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.quand)
+                @Html.DisplayFor(modelItem => item.dateActivite)
             </td>
-           
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.DisplayFor(modelItem => item.debut)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vote)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.covoiturage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaceVoiture)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { num = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { num = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { num = item.Id })
             </td>
         </tr>
 }
