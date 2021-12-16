@@ -1,0 +1,47 @@
+﻿@model IEnumerable<GestionActivités.Models.Participants.Participant>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activite)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Activite)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { num = item.id  }) |
+                @Html.ActionLink("Details", "Details", new { num = item.id  }) |
+                @Html.ActionLink("Delete", "Delete", new { num = item.id  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

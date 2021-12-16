@@ -7,22 +7,21 @@ namespace GestionActivités.Models.Activites
 {
     public class Activite
     {
-        public int Id { get; set; }
+        public int id { get; set; }
         public string nomActivite { get; set; }
         public string emplacement { get; set; }
         public DateTime dateActivite { get; set; }
         public DateTime debut { get; set; }
-
         public DateTime fin { get; set; }
 
         public double prix { get; set; }
         public int vote { get; set; }
         public int covoiturage { get; set; }
-        public int PlaceVoiture { get; set; }
+        public int placeVoiture { get; set; }
 
         public Activite(int id, string nomActivite, string emplacement, DateTime dateActivite, DateTime debut, DateTime fin, double prix, int vote, int covoiturage, int placeVoiture)
         {
-            Id = id;
+            this.id = id;
             this.nomActivite = nomActivite;
             this.emplacement = emplacement;
             this.dateActivite = dateActivite;
@@ -31,7 +30,7 @@ namespace GestionActivités.Models.Activites
             this.prix = prix;
             this.vote = vote;
             this.covoiturage = covoiturage;
-            PlaceVoiture = placeVoiture;
+            this.placeVoiture = placeVoiture;
         }
 
         public Activite()
@@ -40,3 +39,4 @@ namespace GestionActivités.Models.Activites
         }
     }
 }
+

@@ -1,40 +1,41 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
-using GestionActivités.Models.Activites;
+using System.Linq;
+using System.Threading.Tasks;
+using GestionActivités.Models.Participants;
 using GestionActivites.Models;
 
-namespace GestionActivités.Controllers
-{
-    public class ActiviteController : Controller
-    {
-        ConnNProc d = new ConnNProc();
-        public List<Activite> listeActivites;
-        public List<Activite> listeActivite;
 
-        // GET: ActiviteController
+namespace GestionActivites.Controllers
+{
+    public class ParticipantController : Controller
+    {
+        ConnNProc c = new ConnNProc();
+       
+        public List<Participant> listeParticipants;
+        public Participant participant;
+        // GET: ParticipantController
         public ActionResult Index()
         {
-            
-            listeActivites = d.GetListActivites();
-            return View(listeActivites);
+            listeParticipants = c.GetParticipants();
+            return View(listeParticipants) ;
         }
 
-        // GET: HomeController1/Details/5
-        public ActionResult Details(int num)
-        { 
-            listeActivite = d.GetListActivites();
-            Activite A = listeActivite.Find(p => p.id == num);
-            return View(A);
+        // GET: ParticipantController/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
         }
 
-        // GET: HomeController1/Create
+        // GET: ParticipantController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: HomeController1/Create
+        // POST: ParticipantController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -49,13 +50,13 @@ namespace GestionActivités.Controllers
             }
         }
 
-        // GET: HomeController1/Edit/5
+        // GET: ParticipantController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: HomeController1/Edit/5
+        // POST: ParticipantController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -70,14 +71,13 @@ namespace GestionActivités.Controllers
             }
         }
 
-        //TODO: Si j'ai le temps, mettre une règle que si les votes sont plus que -10, delete l'activité
-        // GET: HomeController1/Delete/5
+        // GET: ParticipantController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: HomeController1/Delete/5
+        // POST: ParticipantController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

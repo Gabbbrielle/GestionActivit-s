@@ -4,16 +4,14 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Time to vote!</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                @Html.DisplayNameFor(model => model.id)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.nomActivite)
@@ -33,15 +31,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.prix)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.vote)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.covoiturage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PlaceVoiture)
-            </th>
+           
             <th></th>
         </tr>
     </thead>
@@ -49,7 +39,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
+                @Html.DisplayFor(modelItem => item.id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.nomActivite)
@@ -67,21 +57,13 @@
                 @Html.DisplayFor(modelItem => item.fin)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.prix)
+                @Html.DisplayFor(modelItem => item.prix)$
             </td>
+            
             <td>
-                @Html.DisplayFor(modelItem => item.vote)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.covoiturage)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PlaceVoiture)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { num = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { num = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { num = item.Id })
+                @Html.ActionLink("Edit", "Edit", new { num = item.id }) |
+                @Html.ActionLink("Details", "Details", new { num = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { num = item.id })
             </td>
         </tr>
 }
