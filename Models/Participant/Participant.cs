@@ -9,15 +9,15 @@ namespace GestionActivités.Models.Participants
     {
         public int id { get; set; }
 
-        public string Nom { get; set; }
+        public string nom { get; set; }
         
-        public string Activite { get; set; }
+        public string activite { get; set; }
 
         public Participant(int id, string nom, string activite)
         {
             this.id = id;
-            Nom = nom;
-            Activite = activite;
+            this.nom = nom;
+            this.activite = activite;
         }
 
         public Participant()
@@ -26,8 +26,8 @@ namespace GestionActivités.Models.Participants
         }
         public Participant(string nom, string activite)
         {
-            Nom = nom;
-            Activite = activite;
+            this.nom = nom;
+            this.activite = activite;
         }
     }
 }

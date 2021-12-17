@@ -4,11 +4,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
+<h1>Participant.es aux votes</h1>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Votez pour votre activité</a>
 </p>
+
+
 <table class="table">
     <thead>
         <tr>
@@ -16,10 +18,10 @@
                 @Html.DisplayNameFor(model => model.id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Nom)
+                @Html.DisplayNameFor(model => model.nom)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Activite)
+                @Html.DisplayNameFor(model => model.activite)
             </th>
             <th></th>
         </tr>
@@ -31,15 +33,15 @@
                 @Html.DisplayFor(modelItem => item.id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Nom)
+                @Html.DisplayFor(modelItem => item.nom)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Activite)
+                @Html.DisplayFor(modelItem => item.activite)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { num = item.id  }) |
+              @*  @Html.ActionLink("Edit", "Edit", new { num = item.id  }) |
                 @Html.ActionLink("Details", "Details", new { num = item.id  }) |
-                @Html.ActionLink("Delete", "Delete", new { num = item.id  })
+                @Html.ActionLink("Delete", "Delete", new { num = item.id  })*@
             </td>
         </tr>
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using GestionActivités.Models.Activites;
@@ -15,6 +16,7 @@ namespace GestionActivites.Models
 
         public List<Activite> GetListActivites()
         {
+            ConnNProc c = new ConnNProc();
             List<Activite> listeActivite = new List<Activite>();
             SqlConnection conn;
             SqlCommand cmd;
@@ -30,7 +32,7 @@ namespace GestionActivites.Models
 
             conn.Open();
             reader = cmd.ExecuteReader();
-            
+
             while (reader.Read())
             {
                 Activite a = new Activite();
@@ -41,7 +43,7 @@ namespace GestionActivites.Models
                 a.debut = reader.GetDateTime("Debut");
                 a.fin = reader.GetDateTime("Fin");
                 a.prix = (double)reader.GetDecimal("Prix");
-                
+
 
                 listeActivite.Add(a);
             }
@@ -54,15 +56,12 @@ namespace GestionActivites.Models
             SqlConnection conn;
             SqlCommand cmd;
             SqlDataReader reader;
-
-
             string connectionString = "Data Source=DESKTOP-5BJVM3V;Initial Catalog=Activities;Integrated Security=True;Pooling=False";
             conn = new SqlConnection(connectionString);
             cmd = new SqlCommand();
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "GetParticipants";
             cmd.Connection = conn;
-
             conn.Open();
             reader = cmd.ExecuteReader();
 
@@ -70,35 +69,46 @@ namespace GestionActivites.Models
             {
                 Participant p = new Participant();
                 p.id = reader.GetInt32("Id");
-                p.Nom = reader.GetString("Nom");
-                p.Activite = reader.GetString("Activite");
-                
+                p.nom = reader.GetString("Nom");
+                p.activite = reader.GetString("Activite");
+
                 listeParticipants.Add(p);
             }
+            
             return listeParticipants;
         }
-        //public CreateParticipant()
-        //{
-        //    //List<Activite> listeActivite = new List<Activite>();
-        //    SqlConnection conn;
-        //    SqlCommand cmd;
+        public int CountVotes()
+        {
+            
+            SqlConnection conn;
+            SqlCommand cmd;
+            string connectionString = "Data Source=DESKTOP-5BJVM3V;Initial Catalog=Activities;Integrated Security=True;Pooling=False";
+            conn = new SqlConnection(connectionString);
+            cmd = new SqlCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "CountVotes";
+            cmd.Connection = conn;
+            conn.Open();
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            conn.Close();
+            return count;
+        }
+        public static void CreateParticipant(Participant p)
+        {
+            SqlConnection conn;
+            SqlCommand cmd;
+            string connectionString = "Data Source=DESKTOP-5BJVM3V;Initial Catalog=Activities;Integrated Security=True;Pooling=False";
+            conn = new SqlConnection(connectionString);
+            cmd = new SqlCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "CreateParticipant";
+            cmd.Parameters.Add(new SqlParameter("@Nom", p.nom));
+            cmd.Parameters.Add(new SqlParameter("@Activite", p.activite));
+            cmd.Connection = conn;
+            conn.Open();
+            int rowCount = cmd.ExecuteNonQuery();
+        }
 
-
-
-        //    string connectionString = "Data Source=DESKTOP-5BJVM3V;Initial Catalog=Activities;Integrated Security=True;Pooling=False";
-        //    conn = new SqlConnection(connectionString);
-        //    cmd = new SqlCommand();
-        //    cmd.CommandType = CommandType.StoredProcedure;
-        //    cmd.CommandText = "CreateParticipant";
-        //    cmd.Parameters.Add(new SqlParameter("@Nom", p.Nom));
-        //    cmd.Parameters.Add(new SqlParameter("@Activite", p.Activite));
-        //    cmd.Connection = conn;
-
-        //    conn.Open();
-        //    int rowCount = cmd.ExecuteNonQuery();
-
-
-        //}
-        //cmd.Parameters.Add(new SqlParameter( "@id", Id));
     }
 }
+

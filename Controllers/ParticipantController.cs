@@ -12,14 +12,20 @@ namespace GestionActivites.Controllers
 {
     public class ParticipantController : Controller
     {
+        
         ConnNProc c = new ConnNProc();
+        
        
         public List<Participant> listeParticipants;
         public Participant participant;
+        
+       
+
         // GET: ParticipantController
         public ActionResult Index()
         {
             listeParticipants = c.GetParticipants();
+     
             return View(listeParticipants) ;
         }
 
@@ -30,18 +36,20 @@ namespace GestionActivites.Controllers
         }
 
         // GET: ParticipantController/Create
-        public ActionResult Create()
+        public ActionResult Create( )
         {
-            return View();
+            Participant p = new Participant();
+            return View(p);
         }
 
         // POST: ParticipantController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Participant p)
         {
             try
             {
+                ConnNProc.CreateParticipant(p);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -50,46 +58,7 @@ namespace GestionActivites.Controllers
             }
         }
 
-        // GET: ParticipantController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: ParticipantController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: ParticipantController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: ParticipantController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        
+        
     }
 }
