@@ -2,12 +2,12 @@
 
 @{
     ViewData["Title"] = "Index";
-    int nombreDeVotes = Convert.ToInt32(ViewData["nombreDeVote"]);
+    
 }
 
 
 <h1>Participant.es aux votes</h1>
-<p>@nombreDeVotes</p>
+<p>@ViewBag.nombreDeVote</p>
 <p>
     <a asp-action="Create">Votez pour votre activité</a>
 </p>
@@ -16,9 +16,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.id)
-            </th>
+            
             <th>
                 @Html.DisplayNameFor(model => model.nom)
             </th>
@@ -31,9 +29,7 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.id)
-            </td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.nom)
             </td>

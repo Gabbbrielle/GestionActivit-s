@@ -2,7 +2,8 @@
 
 @{
     ViewData["Title"] = "Create";
-}
+  }
+
 
 <h1>Create</h1>
 
@@ -20,7 +21,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="activite" class="control-label"></label>
-                <input asp-for="activite" class="form-control" />
+                <select asp-for = "activite" class="form-control" />
+                     <option selected disabled> Votre choix </option>
+                        @foreach(string choixActivite in ViewBag.Choix)
+                        {
+                            <option value="@choixActivite">@choixActivite</option>
+                        }
+                </select>
+                
                 <span asp-validation-for="activite" class="text-danger"></span>
             </div>
             <div class="form-group">

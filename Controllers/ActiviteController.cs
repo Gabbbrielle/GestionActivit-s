@@ -11,6 +11,7 @@ namespace GestionActivités.Controllers
         ConnNProc d = new ConnNProc();
         public List<Activite> listeActivites;
         public List<Activite> listeActivite;
+        private object choixActivites;
 
         // GET: ActiviteController
         public ActionResult Index()
@@ -27,6 +28,8 @@ namespace GestionActivités.Controllers
             Activite A = listeActivite.Find(p => p.id == num);
             return View(A);
         }
+
+        
 
         //// GET: HomeController1/Create
         //public ActionResult Create()

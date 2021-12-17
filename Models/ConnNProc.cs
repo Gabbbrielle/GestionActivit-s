@@ -22,14 +22,12 @@ namespace GestionActivites.Models
             SqlCommand cmd;
             SqlDataReader reader;
 
-
             string connectionString = "Data Source=DESKTOP-5BJVM3V;Initial Catalog=Activities;Integrated Security=True;Pooling=False";
             conn = new SqlConnection(connectionString);
             cmd = new SqlCommand();
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "GetListActivities";
             cmd.Connection = conn;
-
             conn.Open();
             reader = cmd.ExecuteReader();
 
@@ -43,8 +41,7 @@ namespace GestionActivites.Models
                 a.debut = reader.GetDateTime("Debut");
                 a.fin = reader.GetDateTime("Fin");
                 a.prix = (double)reader.GetDecimal("Prix");
-
-
+                a.vote = reader.GetInt32("vote");
                 listeActivite.Add(a);
             }
             return listeActivite;
@@ -77,23 +74,22 @@ namespace GestionActivites.Models
             
             return listeParticipants;
         }
-        //public int CountVotes()
-        //{
-            
-        //    SqlConnection conn;
-        //    SqlCommand cmd;
-        //    SqlDataReader r;
-        //    string connectionString = "Data Source=DESKTOP-5BJVM3V;Initial Catalog=Activities;Integrated Security=True;Pooling=False";
-        //    conn = new SqlConnection(connectionString);
-        //    cmd = new SqlCommand();
-        //    cmd.CommandType = CommandType.StoredProcedure;
-        //    cmd.CommandText = "CountVotes";
-        //    cmd.Connection = conn;
-        //    conn.Open();
-        //    //int count = cmd.;
-        //    conn.Close();
-        //    return count;
-        //}
+        public int CountVotes()
+        {
+            Int32 count = 0;
+            SqlConnection conn;
+            SqlCommand cmd;
+            string connectionString = "Data Source=DESKTOP-5BJVM3V;Initial Catalog=Activities;Integrated Security=True;Pooling=False";
+            conn = new SqlConnection(connectionString);
+            cmd = new SqlCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "CountVotes";
+            cmd.Connection = conn;
+            conn.Open();
+            count = (Int32) cmd.ExecuteScalar();
+            conn.Close();
+            return count;
+        }
         public static void CreateParticipant(Participant p)
         {
             SqlConnection conn;
