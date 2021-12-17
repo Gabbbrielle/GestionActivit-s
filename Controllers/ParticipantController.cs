@@ -17,6 +17,7 @@ namespace GestionActivites.Controllers
         
        
         public List<Participant> listeParticipants;
+        private int nombreDeVote;
         public Participant participant;
         
        
@@ -25,6 +26,7 @@ namespace GestionActivites.Controllers
         public ActionResult Index()
         {
             listeParticipants = c.GetParticipants();
+            //ViewData["nombreDeVote"] = c.CountVotes();
      
             return View(listeParticipants) ;
         }

@@ -13,6 +13,8 @@ namespace GestionActivités.Models.Participants
         
         public string activite { get; set; }
 
+        public int votes { get; set; }
+
         public Participant(int id, string nom, string activite)
         {
             this.id = id;

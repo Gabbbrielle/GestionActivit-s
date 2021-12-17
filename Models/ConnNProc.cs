@@ -77,22 +77,23 @@ namespace GestionActivites.Models
             
             return listeParticipants;
         }
-        public int CountVotes()
-        {
+        //public int CountVotes()
+        //{
             
-            SqlConnection conn;
-            SqlCommand cmd;
-            string connectionString = "Data Source=DESKTOP-5BJVM3V;Initial Catalog=Activities;Integrated Security=True;Pooling=False";
-            conn = new SqlConnection(connectionString);
-            cmd = new SqlCommand();
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "CountVotes";
-            cmd.Connection = conn;
-            conn.Open();
-            int count = Convert.ToInt32(cmd.ExecuteScalar());
-            conn.Close();
-            return count;
-        }
+        //    SqlConnection conn;
+        //    SqlCommand cmd;
+        //    SqlDataReader r;
+        //    string connectionString = "Data Source=DESKTOP-5BJVM3V;Initial Catalog=Activities;Integrated Security=True;Pooling=False";
+        //    conn = new SqlConnection(connectionString);
+        //    cmd = new SqlCommand();
+        //    cmd.CommandType = CommandType.StoredProcedure;
+        //    cmd.CommandText = "CountVotes";
+        //    cmd.Connection = conn;
+        //    conn.Open();
+        //    //int count = cmd.;
+        //    conn.Close();
+        //    return count;
+        //}
         public static void CreateParticipant(Participant p)
         {
             SqlConnection conn;
@@ -102,8 +103,8 @@ namespace GestionActivites.Models
             cmd = new SqlCommand();
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "CreateParticipant";
-            cmd.Parameters.Add(new SqlParameter("@Nom", p.nom));
-            cmd.Parameters.Add(new SqlParameter("@Activite", p.activite));
+            cmd.Parameters.Add(new SqlParameter("@Param1", p.nom));
+            cmd.Parameters.Add(new SqlParameter("@Param2", p.activite));
             cmd.Connection = conn;
             conn.Open();
             int rowCount = cmd.ExecuteNonQuery();

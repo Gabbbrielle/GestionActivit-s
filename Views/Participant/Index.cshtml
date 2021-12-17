@@ -2,10 +2,12 @@
 
 @{
     ViewData["Title"] = "Index";
+    int nombreDeVotes = Convert.ToInt32(ViewData["nombreDeVote"]);
 }
 
 
 <h1>Participant.es aux votes</h1>
+<p>@nombreDeVotes</p>
 <p>
     <a asp-action="Create">Votez pour votre activité</a>
 </p>

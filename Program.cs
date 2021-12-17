@@ -1,11 +1,8 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Web;
+using System.ComponentModel.DataAnnotations;
+using GestionActivités.Models.Activites;
 
 namespace GestionActivités
 {
@@ -23,4 +20,5 @@ namespace GestionActivités
                     webBuilder.UseStartup<Startup>();
                 });
     }
+    
 }
