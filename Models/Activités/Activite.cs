@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,11 +8,15 @@ namespace GestionActivités.Models.Activites
 {
     public class Activite
     {
+        
         public int id { get; set; }
         public string nomActivite { get; set; }
         public string emplacement { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd MMMM yyyy}")]
         public DateTime dateActivite { get; set; }
+        [DisplayFormat(DataFormatString = "{0:HH:mm}")]
         public DateTime debut { get; set; }
+        [DisplayFormat(DataFormatString = "{0:HH:mm}")]
         public DateTime fin { get; set; }
 
         public double prix { get; set; }

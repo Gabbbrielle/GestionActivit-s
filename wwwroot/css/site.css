@@ -7,6 +7,11 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+.TextBoxAsLabel {
+    border: none;
+    background-color: #fff;
+    background: transparent;
+}
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;

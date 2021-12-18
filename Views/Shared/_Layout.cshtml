@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Nos activités</title>
+    <title>Nos activités</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -11,21 +11,22 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">GestionActivités</a>
+               
+                <a class="navbar-brand flex-grow-2" >Nos activités</a><br>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse align-content-center ">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Page d'acceuil</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Activite" asp-action="Index">Liste des activités</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Participant" asp-action="Index">Liste Participants</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Participant" asp-action="Index">Nos participant.es</a>
                         </li>
                     </ul>
                 </div>
@@ -40,7 +41,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - GestionActivités - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+           Décembre 2021 -  Crée dans le cadre du cours 420-B11 - Programme Conception de base de données 
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
