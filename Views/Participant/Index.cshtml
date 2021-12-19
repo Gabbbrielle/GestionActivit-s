@@ -14,34 +14,23 @@
 
 
 <table class="table">
-    <thead>
-        <tr>
-            
-            <th>
-                @Html.DisplayNameFor(model => model.nom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.activite)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            
-            <td>
-                @Html.DisplayFor(modelItem => item.nom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.activite)
-            </td>
-            <td>
-              @*  @Html.ActionLink("Edit", "Edit", new { num = item.id  }) |
-                @Html.ActionLink("Details", "Details", new { num = item.id  }) |
-                @Html.ActionLink("Delete", "Delete", new { num = item.id  })*@
-            </td>
-        </tr>
-}
-    </tbody>
+    @foreach(var a in Model.GroupBy(m => m.activite).OrderBy(d => d.Key))
+    {
+            <thead>
+                <tr>
+                    <th> @a.Key </th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in a) {
+                <tr>
+                     
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nom)
+                    </td>
+                </tr>
+        }
+            </tbody>
+    }
 </table>

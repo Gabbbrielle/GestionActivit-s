@@ -2,25 +2,39 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
 }
 
-.TextBoxAsLabel {
-    border: none;
-    background-color: #fff;
-    background: transparent;
-}
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
 }
+/*table td {
+    width: 300px;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    text-align: right;
+}
+table th {
+    width: 300px;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    
+}*/
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -28,6 +42,8 @@ a {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
