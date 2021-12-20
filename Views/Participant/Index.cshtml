@@ -4,21 +4,20 @@
     ViewData["Title"] = "Index";
     
 }
-
-
+@*Le ViewBag affiche le nombre de vote total*@
 <h2>@ViewBag.nombreDeVote personnes ont participées </h2>
 <p></p>
 <p>
-    <a asp-action="Create">Votez pour votre activité</a>
-</p>
-
+    <button class= "votebtn"><a asp-controller="Participant" asp-action="Create" class="btn btn-primary">Votez ici</a></button>
+ </p>
 
 <table class="table">
+    @*Groupe les participant.es par activités*@
     @foreach(var a in Model.GroupBy(m => m.activite).OrderBy(d => d.Key))
     {
             <thead>
                 <tr>
-                    <th> @a.Key </th>
+                    <th> @a.Key </th> @*Affiche le nom de l'activité en en-tête*@
                     
                 </tr>
             </thead>
@@ -27,7 +26,7 @@
                 <tr>
                      
                     <td>
-                        @Html.DisplayFor(modelItem => item.nom)
+                        @Html.DisplayFor(modelItem => item.nom) @*Affiche le nom du ou de la participante pour l'activité*@
                     </td>
                 </tr>
         }

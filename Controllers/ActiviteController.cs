@@ -14,6 +14,10 @@ namespace GestionActivités.Controllers
         private object choixActivites;
 
         // GET: ActiviteController
+        /// <summary>
+        /// Création de la liste des activités pour affichage
+        /// </summary>
+        /// <returns>La liste des activités trouvées dans la bd</returns>
         public ActionResult Index()
         {
             
@@ -22,77 +26,16 @@ namespace GestionActivités.Controllers
         }
 
         // GET: HomeController1/Details/5
+        /// <summary>
+        /// Utilise une liste appellée avec GetListActivites et la fonction Find pour trouver l'activité en paramètre
+        /// </summary>
+        /// <param name="num">Id de l'activité à rechercher</param>
+        /// <returns>Le détails de l'activités avec les attributs additionnels non visible dans l'index</returns>
         public ActionResult Details(int num)
         { 
             listeActivite = d.GetListActivites();
             Activite A = listeActivite.Find(p => p.id == num);
             return View(A);
         }
-
-        
-
-        //// GET: HomeController1/Create
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
-
-        //// POST: HomeController1/Create
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create(IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        //// GET: HomeController1/Edit/5
-        //public ActionResult Edit(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: HomeController1/Edit/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        ////TODO: Si j'ai le temps, mettre une règle que si les votes sont plus que -10, delete l'activité
-        //// GET: HomeController1/Delete/5
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: HomeController1/Delete/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Delete(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
     }
 }

@@ -12,20 +12,13 @@ a.navbar-brand {
 a {
   color: #0366d6;
 }
-/*table td {
-    width: 300px;
-    overflow: hidden;
-    display: inline-block;
-    white-space: nowrap;
-    text-align: right;
+table{
+    table-layout: fixed;
 }
-table th {
-    width: 300px;
-    overflow: hidden;
-    display: inline-block;
-    white-space: nowrap;
-    
-}*/
+td {
+    max-width: 50px;
+    word-wrap: break-word;
+}
 
 .btn-primary {
     color: #fff;
@@ -35,6 +28,10 @@ table th {
     display: flex;
     -webkit-justify-content: center;
     justify-content: center;
+}
+.votebtn {
+    border: none;
+    background-color: #fff
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -81,7 +78,7 @@ html {
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
 .footer {
   position: absolute;

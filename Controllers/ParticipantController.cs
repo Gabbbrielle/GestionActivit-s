@@ -24,12 +24,14 @@ namespace GestionActivites.Controllers
 
 
         // GET: ParticipantController
+        /// <summary>
+        /// Création de la liste des participant.es pour affichage
+        /// </summary>
+        /// <returns>La liste des participant.es trouvées dans la bd</returns>
         public ActionResult Index()
         {
             ViewBag.nombreDeVote = c.CountVotes();
             listeParticipants = c.GetParticipants();
-            //ViewData["nombreDeVote"] = c.CountVotes();
-     
             return View(listeParticipants) ;
         }
         
@@ -40,6 +42,11 @@ namespace GestionActivites.Controllers
         }
 
         // GET: ParticipantController/Create
+        /// <summary>
+        /// Création du formulaire à remplir pour ajouter un participant. choixActivite popule un ViewBag
+        /// utilisé pour faire le choix de l'activité 
+        /// </summary>
+        /// <returns>Le formulaire ainsi que la liste des activités disponibles pour le vote</returns>
         public ActionResult Create( )
         {
 
@@ -50,11 +57,19 @@ namespace GestionActivites.Controllers
             {
                 choixActivite.Add(a.nomActivite);
             }
+            
             ViewBag.Choix = choixActivite;
             return View(p);
         }
 
         // POST: ParticipantController/Create
+        /// <summary>
+        /// Utilise la méthode Createparticipant
+        /// <see cref="ConnNProc.CreateParticipant(Participant)"/>
+        /// </summary>
+        /// <param name="p">Créé à partir du constructeur
+        /// <see cref="Participant.Participant(string, string)"/></param>
+        /// <returns>Le ou la participante avec l'activité choisie</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Participant p)

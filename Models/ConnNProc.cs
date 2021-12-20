@@ -13,7 +13,11 @@ namespace GestionActivites.Models
         {
 
         }
-
+        /// <summary>
+        /// Accède à [dbo].[Activities] et utilise la procédure stockée GetListActvities 
+        /// <code>select * from Activities order by Vote desc</code>
+        /// </summary>
+        /// <returns>Liste des activités en ordre décroissant de vote</returns>
         public List<Activite> GetListActivites()
         {
             ConnNProc c = new ConnNProc();
@@ -46,7 +50,11 @@ namespace GestionActivites.Models
             }
             return listeActivite;
         }
-
+        /// <summary>
+        /// Accède à [dbo].[Participants] et utilise la procédure stockée GetParticipants 
+        /// <code>select * from Participants order by Activite</code>
+        /// </summary>
+        /// <returns>Liste des participant.es en ordre de l'activité choisie</returns>
         public List<Participant> GetParticipants()
         {
             List<Participant> listeParticipants = new List<Participant>();
@@ -74,6 +82,12 @@ namespace GestionActivites.Models
             
             return listeParticipants;
         }
+        /// <summary>
+        /// Accède la [dbo].[Participants] et utilise la procédure stockée CountVotes
+        /// <code>select count(*) from Participants</code>
+        /// Utilisé dans la view Participant.Index.cshtml
+        /// </summary>
+        /// <returns>Int du nombre d'enregistrement (personnes ayant votées) dans la table </returns>
         public int CountVotes()
         {
             Int32 count = 0;
@@ -90,6 +104,19 @@ namespace GestionActivites.Models
             conn.Close();
             return count;
         }
+        /// <summary>
+        /// Insère un nouveau participant dans [dbo].[Participants] et incrémente le nombre de vote dans [dbo].[Activities]
+        /// en utilisant la procédure stockée CreateParticipant
+        /// <code>
+        /// insert into Participants(Nom, Activite) 
+        /// values(@Param1, @Param2); 
+        /// update Activities set Vote = Vote + 1
+        /// where NomActivite = @Param2;</code>
+        /// </code>
+        /// </summary>
+        /// 
+        /// <param name="p">new participant crée à partir de GET: ParticipantController/Create
+        /// et passé en paramètre dans POST: ParticipantController/Create</param>
         public static void CreateParticipant(Participant p)
         {
             SqlConnection conn;
