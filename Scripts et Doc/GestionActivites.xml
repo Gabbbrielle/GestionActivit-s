@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GestionActivites</name>
+    </assembly>
+    <members>
+        <member name="M:GestionActivités.Controllers.ActiviteController.Index">
+            <summary>
+            Création de la liste des activités pour affichage
+            </summary>
+            <returns>La liste des activités trouvées dans la bd</returns>
+        </member>
+        <member name="M:GestionActivités.Controllers.ActiviteController.Details(System.Int32)">
+            <summary>
+            Utilise une liste appellée avec GetListActivites et la fonction Find pour trouver l'activité en paramètre
+            </summary>
+            <param name="num">Id de l'activité à rechercher</param>
+            <returns>Le détails de l'activités avec les attributs additionnels non visible dans l'index</returns>
+        </member>
+        <member name="P:GestionActivités.Models.Activites.Activite.covoiturage">
+            <summary>
+            Une deuxième itération de l'application permettrait d'ajouter si une personne à une voiture pour faire du covoiturage
+            </summary>
+        </member>
+        <member name="P:GestionActivités.Models.Activites.Activite.placeVoiture">
+            <summary>
+            Le nombre de place serait inclue pour permettre aux participant.es d'offrir ou demander une place pour se rendre à l'activité
+            </summary>
+        </member>
+        <member name="P:GestionActivités.Models.Participants.Participant.id">
+            <summary>
+            Contructeur général utilisé pour l'index des participant.es
+            </summary>
+        </member>
+        <member name="M:GestionActivités.Models.Participants.Participant.#ctor(System.String,System.String)">
+            <summary>
+            Constructeur utilisé pour l'ajout d'un.e participant.e et son vote
+            </summary> 
+        </member>
+        <member name="M:GestionActivites.Controllers.ParticipantController.Index">
+            <summary>
+            Création de la liste des participant.es pour affichage
+            </summary>
+            <returns>La liste des participant.es trouvées dans la bd</returns>
+        </member>
+        <member name="M:GestionActivites.Controllers.ParticipantController.Create">
+            <summary>
+            Création du formulaire à remplir pour ajouter un participant. choixActivite popule un ViewBag
+            utilisé pour faire le choix de l'activité 
+            </summary>
+            <returns>Le formulaire ainsi que la liste des activités disponibles pour le vote</returns>
+        </member>
+        <member name="M:GestionActivites.Controllers.ParticipantController.Create(GestionActivités.Models.Participants.Participant)">
+            <summary>
+            Utilise la méthode Createparticipant
+            <see cref="M:GestionActivites.Models.ConnNProc.CreateParticipant(GestionActivités.Models.Participants.Participant)"/>
+            </summary>
+            <param name="p">Créé à partir du constructeur
+            <see cref="M:GestionActivités.Models.Participants.Participant.#ctor(System.String,System.String)"/></param>
+            <returns>Le ou la participante avec l'activité choisie</returns>
+        </member>
+        <member name="M:GestionActivites.Models.ConnNProc.GetListActivites">
+            <summary>
+            Accède à [dbo].[Activities] et utilise la procédure stockée GetListActvities 
+            <code>select * from Activities order by Vote desc</code>
+            </summary>
+            <returns>Liste des activités en ordre décroissant de vote</returns>
+        </member>
+        <member name="M:GestionActivites.Models.ConnNProc.GetParticipants">
+            <summary>
+            Accède à [dbo].[Participants] et utilise la procédure stockée GetParticipants 
+            <code>select * from Participants order by Activite</code>
+            </summary>
+            <returns>Liste des participant.es en ordre de l'activité choisie</returns>
+        </member>
+        <member name="M:GestionActivites.Models.ConnNProc.CountVotes">
+            <summary>
+            Accède la [dbo].[Participants] et utilise la procédure stockée CountVotes
+            <code>select count(*) from Participants</code>
+            Utilisé dans la view Participant.Index.cshtml
+            </summary>
+            <returns>Int du nombre d'enregistrement (personnes ayant votées) dans la table </returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:GestionActivites.Models.ConnNProc.CreateParticipant(GestionActivités.Models.Participants.Participant)" -->
+    </members>
+</doc>
