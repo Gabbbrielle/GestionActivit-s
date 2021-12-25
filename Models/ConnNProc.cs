@@ -26,7 +26,7 @@ namespace GestionActivites.Models
             SqlCommand cmd;
             SqlDataReader reader;
 
-            string connectionString = "Data Source=DESKTOP-5BJVM3V;Initial Catalog=Activities;Integrated Security=True;Pooling=False";
+            string connectionString = "Data Source={secrets.Unicorn1};Initial Catalog=Activities;Integrated Security=True;Pooling=False";
             conn = new SqlConnection(connectionString);
             cmd = new SqlCommand();
             cmd.CommandType = CommandType.StoredProcedure;
@@ -61,7 +61,7 @@ namespace GestionActivites.Models
             SqlConnection conn;
             SqlCommand cmd;
             SqlDataReader reader;
-            string connectionString = "Data Source=DESKTOP-5BJVM3V;Initial Catalog=Activities;Integrated Security=True;Pooling=False";
+            string connectionString = "Data Source={secrets.Unicorn1};Initial Catalog=Activities;Integrated Security=True;Pooling=False";
             conn = new SqlConnection(connectionString);
             cmd = new SqlCommand();
             cmd.CommandType = CommandType.StoredProcedure;
@@ -93,7 +93,7 @@ namespace GestionActivites.Models
             Int32 count = 0;
             SqlConnection conn;
             SqlCommand cmd;
-            string connectionString = "Data Source=DESKTOP-5BJVM3V;Initial Catalog=Activities;Integrated Security=True;Pooling=False";
+            string connectionString = "Data Source={secrets.Unicorn1};Initial Catalog=Activities;Integrated Security=True;Pooling=False";
             conn = new SqlConnection(connectionString);
             cmd = new SqlCommand();
             cmd.CommandType = CommandType.StoredProcedure;
@@ -121,7 +121,7 @@ namespace GestionActivites.Models
         {
             SqlConnection conn;
             SqlCommand cmd;
-            string connectionString = "Data Source=DESKTOP-5BJVM3V;Initial Catalog=Activities;Integrated Security=True;Pooling=False";
+            string connectionString = "Data Source={secrets.Unicorn1};Initial Catalog=Activities;Integrated Security=True;Pooling=False";
             conn = new SqlConnection(connectionString);
             cmd = new SqlCommand();
             cmd.CommandType = CommandType.StoredProcedure;
